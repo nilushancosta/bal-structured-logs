@@ -1,3 +1,4 @@
+import ballerina/http;
 import ballerina/log;
 
 public type User record {
@@ -5,7 +6,9 @@ public type User record {
     int age;
 };
 
-public function main() {
+# A service representing a network-accessible API
+# bound to port `9090`.
+service / on new http:Listener(9090) {
     // The Ballerina log API provides functions to log at four levels, which are `DEBUG`, `ERROR`, `INFO`, and `WARN`.
     log:printDebug("debug log");
     log:printError("error log");
